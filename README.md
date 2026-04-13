@@ -22,6 +22,12 @@ A WordPress-based eCommerce project with multilingual support and REST API produ
 
 ---
 
+## Live Demo
+
+[wp-woo.infinityfree.me](http://wp-woo.infinityfree.me)
+
+---
+
 ## Local Setup
 
 ### Requirements
@@ -65,7 +71,7 @@ A WordPress-based eCommerce project with multilingual support and REST API produ
 6. Replace URLs in the database using **Better Search Replace**:
    - Go to `Tools → Better Search Replace`
    - Search for: `http://wp-woo.loc`
-   - Replace with: `http://localhost/wp-woo`
+   - Replace with: `http://wp-woo.loc` (or your local URL)
    - Select all tables → **Run Search/Replace**
 
 7. Restore uploads:
@@ -175,7 +181,7 @@ Content-Type: application/json
 ### curl Example (Linux/Mac)
 
 ```bash
-curl -X POST http://localhost/wp-woo/wp-json/test/v1/import-products \
+curl -X POST http://wp-woo.loc/wp-json/test/v1/import-products \
   -H "Content-Type: application/json" \
   -d '[{"sku":"CHAIR-001","name":"Стілець","price":49.99,"stock":10,"translations":{"en":{"name":"Chair"}}}]'
 ```
@@ -183,15 +189,16 @@ curl -X POST http://localhost/wp-woo/wp-json/test/v1/import-products \
 ### curl Example (Windows CMD)
 
 ```cmd
-curl -X POST http://localhost/wp-woo/wp-json/test/v1/import-products -H "Content-Type: application/json" -d "[{\"sku\":\"CHAIR-001\",\"name\":\"Стілець\",\"price\":49.99,\"stock\":10,\"translations\":{\"en\":{\"name\":\"Chair\"}}}]"
+curl -X POST http://wp-woo.loc/wp-json/test/v1/import-products -H "Content-Type: application/json" -d "[{\"sku\":\"CHAIR-001\",\"name\":\"Стілець\",\"price\":49.99,\"stock\":10,\"translations\":{\"en\":{\"name\":\"Chair\"}}}]"
 ```
 
 ---
 
 ## Admin Access
 
-| Field    | Value                            |
-|----------|----------------------------------|
-| URL      | http://localhost/wp-woo/wp-admin |
-| Login    | admin                            |
-| Password | Qwerty123!#                      |
+| Field     | Value                                  |
+|-----------|----------------------------------------|
+| Live URL  | http://wp-woo.infinityfree.me/wp-admin |
+| Local URL | http://wp-woo.loc/wp-admin             |
+| Login     | admin                                  |
+| Password  | Qwerty123!#                            |
