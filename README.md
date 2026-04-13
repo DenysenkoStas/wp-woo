@@ -8,6 +8,12 @@ A WordPress-based eCommerce project with multilingual support and REST API produ
 - WooCommerce
 - Polylang
 - Contact Form 7
+- Better Search Replace
+
+## Themes
+
+- **Storefront** (parent theme)
+- **Storefront Child** (active)
 
 ## Languages
 
@@ -51,13 +57,35 @@ A WordPress-based eCommerce project with multilingual support and REST API produ
    define( 'DB_HOST', 'localhost' );
    ```
 
-5. Open `http://localhost/wp-woo/` and complete WordPress installation.
+5. Import database:
+   - Open `http://localhost/phpmyadmin`
+   - Select database `wp_woo`
+   - Tab **Import** → choose `database.sql` → **Go**
 
-6. Activate plugins:
+6. Replace URLs in the database using **Better Search Replace**:
+   - Go to `Tools → Better Search Replace`
+   - Search for: `http://wp-woo.loc`
+   - Replace with: `http://localhost/wp-woo`
+   - Select all tables → **Run Search/Replace**
+
+7. Restore uploads:
+   - The `wp-content/uploads/` directory is excluded from the repository
+   - Re-upload product images manually via `WP Admin → Products`
+
+8. Fix permalinks:
+   - The `.htaccess` file is excluded from the repository
+   - Go to `Settings → Permalinks` → click **Save Changes** to regenerate it
+
+9. Activate plugins:
    - WooCommerce
    - Polylang
    - Contact Form 7
+   - Better Search Replace
    - Import Products API (custom plugin in `/wp-content/plugins/import-products/`)
+
+10. Activate theme:
+    - Go to `Appearance → Themes`
+    - Activate **Storefront Child**
 
 ---
 
@@ -144,12 +172,18 @@ Content-Type: application/json
 ]
 ```
 
-### curl Example
+### curl Example (Linux/Mac)
 
 ```bash
 curl -X POST http://localhost/wp-woo/wp-json/test/v1/import-products \
   -H "Content-Type: application/json" \
   -d '[{"sku":"CHAIR-001","name":"Стілець","price":49.99,"stock":10,"translations":{"en":{"name":"Chair"}}}]'
+```
+
+### curl Example (Windows CMD)
+
+```cmd
+curl -X POST http://localhost/wp-woo/wp-json/test/v1/import-products -H "Content-Type: application/json" -d "[{\"sku\":\"CHAIR-001\",\"name\":\"Стілець\",\"price\":49.99,\"stock\":10,\"translations\":{\"en\":{\"name\":\"Chair\"}}}]"
 ```
 
 ---
@@ -159,5 +193,5 @@ curl -X POST http://localhost/wp-woo/wp-json/test/v1/import-products \
 | Field    | Value                            |
 |----------|----------------------------------|
 | URL      | http://localhost/wp-woo/wp-admin |
-| Login    | your-login                       |
-| Password | your-password                    |
+| Login    | admin                            |
+| Password | Qwerty123!#                      |
