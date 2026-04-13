@@ -1,0 +1,93 @@
+/*
+ Theme Name: Storefront Child
+ Template: storefront
+ Version: 1.0.0
+*/
+
+.header-lang-dropdown {
+  position: absolute;
+  top: .4rem;
+  right: 1.5rem;
+  z-index: 9999;
+}
+
+.lang-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff !important;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-lang-dropdown:hover .lang-menu {
+  display: none;
+}
+
+.header-lang-dropdown.open .lang-menu {
+  display: block;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  list-style: none !important;
+  padding: 0.4rem 0 !important;
+  margin: 0.3rem 0 0 !important;
+  min-width: 130px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lang-menu li {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.lang-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.lang-menu li a:hover,
+.lang-menu li.current-lang a {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-menu li.current-lang a {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding-top: 1em;
+    padding-bottom: 3.5em;
+  }
+
+  .header-lang-dropdown {
+    top: 74px;
+  }
+}
+
+.home .entry-title {
+  display: none;
+}
+
+.home .wc-block-product-template__responsive {
+  margin-left: 0;
+}
